@@ -30,13 +30,23 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+The DOM is what allows programs to manipulate the html and css without actually changing it
+
 2. What is an event?
+
+an event is something that happens to html elements, this can be things like a click or a button press
 
 3. What is an event listener?
 
+an event listener is a method that is added to an element and waits for an event to happen and then runs code on the element that the event listener was added on to.
+
 4. Why would we convert a NodeList into an Array?
 
+When you use querySelectorAll, you get back a node and not an array, this means that you can't use any of the methods that you could use with arrays like forEach and filter. So you would want to convert that node into an array so you can manipulate it easier
+
 5. What is a component?
+
+A component is code used to make many elements that have similar features. This way you can make many of the same things and not waste time typing out all of the same code.
 
 ### Git Set up
 

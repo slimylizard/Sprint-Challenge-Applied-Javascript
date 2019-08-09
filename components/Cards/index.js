@@ -22,11 +22,11 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(res =>{
         console.log(res.data.articles);
         let nodelist = res.data.articles;
-        for(let prop in nodelist){
-            for (let i=0; i<prop.length; i++){
-                const deck = cardCreator(prop[i]);
-                cards.append(deck);
-            };               
+        for(prop in nodelist){
+            nodelist[prop].forEach( something =>{
+                cards.appendChild(cardCreator(something))
+
+            })
         };
     });
 function cardCreator(article){
@@ -39,18 +39,20 @@ function cardCreator(article){
 
     let author = document.createElement('div');
     author.classList.add('author');
-    card.append(headline, author);
+    card.appendChild(headline);
+    card.appendChild(author);
 
     let imgdiv = document.createElement('div');
     imgdiv.classList.add('img-container');
 
     let aimg = document.createElement('img');
     aimg.src = article.authorPhoto;
-    imgdiv.append(aimg);
+    imgdiv.appendChild(aimg);
 
     let span = document.createElement('span');
     span.textContent = `By ${article.authorName}`
-    author.append(imgdiv, span);
+    author.appendChild(imgdiv);
+    author.appendChild(span);
     return card;
 }
 

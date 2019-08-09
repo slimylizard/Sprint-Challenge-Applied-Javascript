@@ -20,11 +20,14 @@
 let cards = document.querySelector('.cards-container');
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(res =>{
-        console.log(res.data);
-        let newdata = Array.from(res.data);
-        console.log(newdata);
-        const deck = cardCreator(newdata);
-        cards.append(deck);
+        console.log(res.data.articles);
+        let nodelist = res.data.articles;
+        for(let prop in nodelist){
+            for (let i=0; i<prop.length; i++){
+                const deck = cardCreator(prop[i]);
+                cards.append(deck);
+            };               
+        };
     });
 function cardCreator(article){
     let card = document.createElement('div');
